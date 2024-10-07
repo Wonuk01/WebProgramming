@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang ="ko">
+<head>
+    <meta charset = "UTF-8">
+    <meta name ="viewport" content = "width=device-width, initial-scale=1.0">
+    <title>도형 서식 폼 만들기</title>
+    <style>
+        body {
+            font-family: Arial, sans-seirf;
+            background-color: #f9f9f9;
+            color: #333333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #000000;
+        }
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+        }
+        fieldset {
+            width: 350px;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>도형 서식 폼 만들기</h1>
+    <hr>
+    <form>
+        <fieldset>
+            <legend>도형 서식 입력</legend>
+            선 종류 : 
+            <select name="line">
+                <option value ="1">선없음</option>
+                <option value ="2">실선</option>
+                <option value ="3">점선</option>
+                </select> <br>
+            선 두께 :
+            <input type="number">
+            선 색 : 
+            <input type="color" value="#00BFFF"> <br>
+            투명도(0~100) : 
+            <input type="range" min="0" max="100" list="invisible">
+            <datalist id="invisible">
+            <option value="25" label="low">
+            <option value="50" label="middle">
+            <option value="75" label="high">
+            </datalist>
+        </fieldset>
+    </form>
+</body>
+</html>
