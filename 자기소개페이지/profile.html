@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+        @font-face {
+            font-family: LOGO_FONT;
+            src: url("fonts/ALISON_.ttf") format("truetype");
+        }
+
+        @font-face {
+            font-family: MENU_FONT;
+            src: url("fonts/Navi 산하체.ttf") format("truetype");
+        }
+
+        @font-face {
+            font-family: HEAD_TITLE_FONT;
+            src: url("fonts/yoon수다핑크릴리.ttf") format("truetype");
+        }
+
+        @font-face {
+            font-family: HEAD_SUB_FONT;
+            src: url("fonts/헤움봄비.ttf") format("truetype");
+        }
+
+        @font-face {
+            font-family: NORMAL_FONT;
+            src: url("fonts/SM유노윤호.ttf") format("truetype");
+        }
+
+        * {
+            font-family: NORMAL_FONT;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        hgroup h1 {
+            font-family: HEAD_TITLE_FONT;
+            text-shadow: 2px 2px 5px #ccc;
+            font-size: 36px;
+            color: #333;
+        }
+
+        hgroup h2 {
+            font-family: HEAD_SUB_FONT;
+            color: #555;
+            text-shadow: 1px 1px 3px #eee;
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        #wrapBox {
+            width: 800px;
+            margin: 20px auto;
+            text-align: left;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        #topMenus h1 {
+            font-family: LOGO_FONT;
+            font-size: 32px;
+            padding: 20px 0;
+            color: #333;
+        }
+
+        #topMenus ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #topMenus ul li {
+            display: inline;
+            padding-right: 15px;
+        }
+
+        #topMenus ul li a {
+            font-family: MENU_FONT;
+            font-size: 18px;
+            text-shadow: 1px 1px 1px #ddd;
+        }
+
+        #topMenus ul li a:hover {
+            border-bottom: 2px solid #007BFF;
+        }
+
+        #mainContent {
+            position: relative;
+        }
+
+        #basicInfo,
+        #techLog,
+        #imageSection {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: center;
+            color: #999;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        #myPhoto {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        #myPhoto img {
+            width: 100%; /* Adjust width as needed */
+            max-width: 300px; /* Limit the max width */
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+		#musicFrame {
+    		text-align: center; 
+    		margin: 20px 0; 
+}
+    </style>
+
+    <script>
+        window.onload = function () {
+            var context = document.getElementById("canvas").getContext("2d");
+            context.beginPath();
+            context.arc(150, 100, 70, 0, Math.PI * 2);
+            context.lineWidth = 10;
+            context.lineCap = 'round';
+            context.strokeStyle = 'rgba(200, 125, 10, 0.3)';
+            context.stroke();
+
+            context.beginPath();
+            context.arc(120, 90, 10, -(Math.PI), 0);
+            context.lineWidth = 5;
+            context.strokeStyle = 'rgba(230, 130, 20, 0.5)';
+            context.stroke();
+
+            context.beginPath();
+            context.arc(180, 90, 10, -(Math.PI), 0);
+            context.lineWidth = 5;
+            context.strokeStyle = 'rgba(230, 130, 20, 0.5)';
+            context.stroke();
+
+            context.beginPath();
+            context.moveTo(130, 120);
+            context.lineTo(170, 120);
+            context.lineWidth = 3;
+            context.strokeStyle = 'rgba(250, 145, 30, 0.5)';
+            context.stroke();
+
+            context.beginPath();
+            context.arc(150, 120, 20, 0, -(Math.PI));
+            context.lineWidth = 3;
+            context.strokeStyle = 'rgba(250, 145, 30, 0.5)';
+            context.stroke();
+
+            context.font = "bold 24px MENU_FONT";
+            context.fillText("Welcome~! Happy day~!", 280, 100);
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div id="wrapBox">
+
+        <section id="topMenus">
+            <h1 class="shadowBox">UKKING</h1>
+            <nav>
+                <ul>
+                    <li><a href="./">첫화면</a></li>
+                    <li><a href="http://UKKING.net">웹사이트</a></li>
+                    <li><a href="http://UKKING.net/blog">블로그</a></li>
+                    <li><a href="http://twitter.com/grboard">트위터</a></li>
+                    <li><a href="http://facebook.com/UKKING">페이스북</a></li>
+                    <li><a href="mailto:UKKING@gmail.com">이메일</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <header>
+            <hgroup>
+                <h1>최원욱 소개 페이지</h1>
+                <h2>만나서 반갑습니다! 이 페이지는 저를 소개하는 페이지입니다!</h2>
+            </hgroup>
+        </header>
+
+        <div id="mainContent">
+            <div id="basicInfo">
+                <section>
+                    <hgroup>
+                        <h1>기본정보</h1>
+                    </hgroup>
+                    <ul>
+                        <li>충렬고등학교 졸업</li>
+                        <li>경성대학교 소프트웨어학과 20학번 (재학중)</li>
+                        <li>2학년 2학기 웹프로그래밍 과목 수강중</li>
+                        <li>WEB 에 입문한지 2개월 째</li>
+                    </ul>
+                </section>
+            </div>
+
+            <div id="techLog">
+                <section>
+                    <hgroup>
+                        <h1>취미생활</h1>
+                    </hgroup>
+                    <ul>
+                        <li>운동하는것을 좋아하며 주로 헬스나 복싱을 함.</li>
+                        <li>쉬는 시간이나 평소 운동 할떄 노래를 즐겨 들음</li>
+                        <li>발라드를 좋아하며 랩도 가끔 듣는 편</li>
+                    </ul>
+                </section>
+            </div>
+            <div id="imageSection">
+                <hgroup>
+                    <h1>셀카</h1>
+                </hgroup>
+                <div id="myPhoto">
+                    <img src="images/배부른짱구.jpg" alt="최원욱 사진" />
+                </div>
+            </div>
+			<div id="musicSection">
+				<hgroup>
+					<h1>주로 듣는 음악</h1>
+				</hgroup>
+				<div id="musicFrame">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/dJRkhdWsu_M?si=X338XVMbp8jL-Fju" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+        </div>
+
+        <footer>
+            <div id="copyleft" class="shadowBox">
+                이 문서는 내 입맛대로 뜯어 고친 문서입니다.
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
