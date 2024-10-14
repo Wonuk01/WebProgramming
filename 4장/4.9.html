@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text-shadow와 box-shadow</title>
+    <style>
+         h1 {
+            color: yellow;
+            text-align: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+         .image-container {
+            display: inline-block;
+            margin: 0 10px;
+            width: 500px; 
+            height: 500px;
+        }
+          img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px 0;
+        }
+        .container {
+            display: flex;
+            align-items: center; 
+        }
+        .image-container:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); 
+        }
+    </style>
+</head>
+<body>
+    <h1> Most Visited Pages </h1>
+    <hr>
+    <div class ="container">
+    <div class ="image-container">
+        <img src="구글.jpg" alt="구글">
+    </div>
+    <div class ="image-container">
+        <img src="네이버.jpg" alt="구글">
+    </div>
+    <div class ="image-container">
+        <img src="유튜브.jpg" alt="구글">
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:hover 활용</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; 
+            background-color: #f9f9f9;
+            color: #333333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #000000;
+        }
+        .card {
+            position: relative; 
+            width: 300px; 
+            height: 400px; 
+            overflow: hidden; 
+        }
+
+        .container {
+            display: flex;
+            align-items: center; 
+        }
+
+        .card img {
+            width: 100%; 
+            height: auto; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            transition: opacity 0.3s; 
+        }
+
+        .front {
+            opacity: 0; 
+        }
+
+        .card:hover .front {
+            opacity: 1; 
+        }
+
+        .card:hover .back {
+            opacity: 0; 
+        }
+    </style>
+</head>
+<body>
+    <h1>:hover 활용</h1>
+    <hr>
+    <div class ="container">
+    <p> 마우스를 올리면 카드의 앞면이 보인다. </p>
+    <div class="card">
+        <img class="back" src="카드뒷면.jpg" alt="카드 뒷면"> 
+        <img class="front" src="카드앞면.jpg" alt="카드 앞면"> 
+    </div>
+</div>
+</body>
+</html>
