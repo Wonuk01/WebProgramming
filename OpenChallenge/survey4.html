@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang ="ko">
+<head>
+    <meta charset = "UTF-8">
+    <meta name ="viewport" content = "width=device-width, initial-scale=1.0">
+    <title>설문지</title>
+    <link href="survey4.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <header>
+    <h1>설문지</h1>
+    소프트웨어 기술에 대한 의견을 듣습니다. 많은 참여 부탁드립니다.
+    </header>
+    <hr>
+    <form>
+        <section>
+        <span class="blue-text">학년</span>
+        <input type="radio" name="grade" value="1">1학년
+        <input type="radio" name="grade" value="2">2학년
+        <input type="radio" name="grade" value="3">3학년
+        <input type="radio" name="grade" value="4">4학년 <br>
+        <span class="blue-text">성별</span>
+        <input type="radio" name="sex" value="1">남
+        <input type="radio" name="sex" value="1">여 <br>
+        <span class="blue-text">관심 분야</span>
+        <select name="line">
+            <option value ="1">모바일 소프트웨어</option>
+            <option value ="2">웹 프로그래밍</option>
+            <option value ="3">알고리즘</option>
+            </select> <br>
+        <span class="blue-text">진로</span> 
+        <input type="checkbox" value="1"> 개발
+        <input type="checkbox" value="2"> 기획
+        <input type="checkbox" value="3"> 영업
+        <input type="checkbox" value="4"> 창업 <br>
+        <span class="blue-text">남기고 싶은 말</span>
+        <textarea cols="30" rows="5"> 글을 남겨주세요.</textarea>
+    </section>
+    <br>
+        <footer>
+        Copyright 2022 by Kitae
+        </footer>
+    </form>
+</body>
+</html>
