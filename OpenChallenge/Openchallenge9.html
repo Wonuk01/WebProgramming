@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>마우스 클릭 연습</title>
+    <style>
+        table {
+            border: 1px solid blue;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid blue;
+            width: 50px;
+            height: 50px;
+            padding: 0px;
+        }
+    </style>
+    <script>
+        var select = 0;
+        var img = new Image();
+        img.src = "images/donkey.png";
+
+        function set() {
+            var table = document.getElementById("table1");
+
+            for (var i = 0; i < 10; i++) {
+                var row = document.createElement("tr");
+
+                for (var j = 0; j < 10; j++) {
+                    var col = document.createElement("td");
+                    col.innerHTML = "<img src=''>";
+                    row.appendChild(col);
+                }
+                table.appendChild(row);
+            }
+
+            for (var i = 0; i < 100; i++) {
+                document.images[i].onclick = moveImage;
+            }
+            moveImage();
+        }
+
+        function moveImage() {
+            document.images[select].src = "";
+            select = Math.floor(Math.random() * 100);
+            document.images[select].src = img.src;
+        }
+    </script>
+</head>
+<body onload="set()">
+<h3>마우스 클릭 연습</h3>
+<hr>
+<table id="table1"></table>
+</body>
+</html>
