@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자기 소개 페이지</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome (아이콘용) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar (Tailwind) -->
+    <nav class="bg-blue-600 text-white p-4">
+        <div class="flex justify-between items-center container mx-auto">
+            <a href="#" class="text-xl font-semibold">내 소개</a>
+            <div class="space-x-6">
+                <a href="#about" class="hover:text-blue-300">소개</a>
+                <a href="#skills" class="hover:text-blue-300">기술</a>
+                <a href="#contact" class="hover:text-blue-300">연락처</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-8">
+
+        <!-- About Section -->
+        <section id="about" class="bg-white p-6 rounded-lg shadow-lg mb-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="w-full md:w-1/3 text-center mb-6 md:mb-0">
+                    <i class="fas fa-user-circle text-blue-600 text-6xl"></i>
+                </div>
+                <div class="md:w-2/3">
+                    <h2 class="text-3xl font-semibold text-gray-800 mb-3">안녕하세요, 저는 최원욱 입니다!</h2>
+                    <p class="text-lg text-gray-600">웹 프로그램을 이수하는 학생이며 HTML, CSS, JavaScript를 비롯한 다양한 언어와 프레임워크를 공부하여 멋진 웹사이트를 만들고 싶습니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="mb-10">
+            <h3 class="text-2xl text-center text-blue-600 mb-6">공부해야할 것</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                <div class="text-center bg-white p-6 rounded-lg shadow-md">
+                    <i class="fab fa-html5 text-red-600 text-4xl mb-3"></i>
+                    <p>HTML</p>
+                </div>
+                <div class="text-center bg-white p-6 rounded-lg shadow-md">
+                    <i class="fab fa-css3-alt text-blue-600 text-4xl mb-3"></i>
+                    <p>CSS</p>
+                </div>
+                <div class="text-center bg-white p-6 rounded-lg shadow-md">
+                    <i class="fab fa-js-square text-yellow-500 text-4xl mb-3"></i>
+                    <p>JavaScript</p>
+                </div>
+                <div class="text-center bg-white p-6 rounded-lg shadow-md">
+                    <i class="fab fa-react text-blue-500 text-4xl mb-3"></i>
+                    <p>React</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-white p-6 rounded-lg shadow-lg">
+            <h3 class="text-2xl text-center text-blue-600 mb-6">연락처</h3>
+            <form action="#" method="POST">
+                <div class="mb-4">
+                    <label for="name" class="block text-lg text-gray-700">이름</label>
+                    <input type="text" id="name" name="name" class="w-full p-3 border border-gray-300 rounded-md" placeholder="이름을 입력하세요">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-lg text-gray-700">이메일</label>
+                    <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-md" placeholder="이메일을 입력하세요">
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-lg text-gray-700">메시지</label>
+                    <textarea id="message" name="message" class="w-full p-3 border border-gray-300 rounded-md" rows="4" placeholder="메시지를 작성하세요"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700">보내기</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white text-center py-4">
+        <p>&copy; 2024 최원욱. 모든 권리 보유.</p>
+    </footer>
+
+</body>
+
+</html>

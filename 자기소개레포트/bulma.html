@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자기 소개 페이지</title>
+    
+    <!-- Bulma CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome (아이콘용) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar (Bulma) -->
+    <nav class="navbar is-primary">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">내 소개</a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-end">
+                <a href="#about" class="navbar-item">소개</a>
+                <a href="#skills" class="navbar-item">기술</a>
+                <a href="#contact" class="navbar-item">연락처</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container py-5">
+        <!-- About Section -->
+        <section id="about" class="box has-background-white-ter p-5 mb-5">
+            <div class="columns">
+                <div class="column is-4 has-text-centered">
+                    <!-- Profile Icon (Font Awesome) -->
+                    <i class="fas fa-user-circle fa-5x text-primary mb-3"></i>
+                </div>
+                <div class="column is-8">
+                    <h2 class="title is-3 has-text-dark">안녕하세요, 저는 최원욱 입니다!</h2>
+                    <p class="subtitle has-text-grey">웹 프로그램을 이수하는 학생이며 HTML, CSS, JavaScript를 비롯한 다양한 언어와 프레임워크를 공부하여 멋진 웹사이트를 만들고 싶습니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="mb-5">
+            <h3 class="title is-4 has-text-centered has-text-primary mb-4">공부해야할 것</h3>
+            <div class="columns is-multiline is-centered">
+                <div class="column is-3 has-text-centered mb-4">
+                    <div class="box has-background-light">
+                        <i class="fab fa-html5 fa-3x has-text-danger mb-2"></i>
+                        <p>HTML</p>
+                    </div>
+                </div>
+                <div class="column is-3 has-text-centered mb-4">
+                    <div class="box has-background-light">
+                        <i class="fab fa-css3-alt fa-3x has-text-primary mb-2"></i>
+                        <p>CSS</p>
+                    </div>
+                </div>
+                <div class="column is-3 has-text-centered mb-4">
+                    <div class="box has-background-light">
+                        <i class="fab fa-js-square fa-3x has-text-warning mb-2"></i>
+                        <p>JavaScript</p>
+                    </div>
+                </div>
+                <div class="column is-3 has-text-centered mb-4">
+                    <div class="box has-background-light">
+                        <i class="fab fa-react fa-3x has-text-info mb-2"></i>
+                        <p>React</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="box has-background-light p-5">
+            <h3 class="title is-4 has-text-centered has-text-primary mb-4">연락처</h3>
+            <form>
+                <div class="field">
+                    <label for="name" class="label">이름</label>
+                    <div class="control">
+                        <input type="text" class="input" id="name" placeholder="이름을 입력하세요">
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="email" class="label">이메일</label>
+                    <div class="control">
+                        <input type="email" class="input" id="email" placeholder="이메일을 입력하세요">
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="message" class="label">메시지</label>
+                    <div class="control">
+                        <textarea class="textarea" id="message" rows="3" placeholder="메시지를 작성하세요"></textarea>
+                    </div>
+                </div>
+                <div class="control">
+                    <button type="submit" class="button is-primary">보내기</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer has-background-dark has-text-white-ter py-4">
+        <div class="content has-text-centered">
+            <p>&copy; 2024 최원욱. 모든 권리 보유.</p>
+        </div>
+    </footer>
+
+    <!-- Bulma JS (optional) -->
+    <script>
+        // Navbar Burger Toggle (for mobile)
+        document.addEventListener('DOMContentLoaded', () => {
+            const burger = document.querySelector('.navbar-burger');
+            const menu = document.querySelector('#navbarBasicExample');
+            burger.addEventListener('click', () => {
+                menu.classList.toggle('is-active');
+                burger.classList.toggle('is-active');
+            });
+        });
+    </script>
+</body>
+
+</html>
