@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+        .delete-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <input type="text" id="taskInput" placeholder="Add a new task">
+    <button id="addButton">Add Task</button>
+    <ul id="taskList"></ul>
+
+    <script>
+        const taskInput = document.getElementById('taskInput');
+        const addButton = document.getElementById('addButton');
+        const taskList = document.getElementById('taskList');
+
+        // Function to create a new task item
+        function createTask(taskContent) {
+            const li = document.createElement('li');
+            li.textContent = taskContent;
+            li.addEventListener('click', () => {
+                li.classList.toggle('completed');
+            });
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.classList.add('delete-btn');
+            deleteButton.addEventListener('click', (e) => {
+                e.stopPropagation();  // Prevents click event on li
+                taskList.removeChild(li);
+            });
+
+            li.appendChild(deleteButton);
+            taskList.appendChild(li);
+        }
+
+        // Add task when button is clicked
+        addButton.addEventListener('click', () => {
+            const taskContent = taskInput.value.trim();
+            if (taskContent !== '') {
+                createTask(taskContent);
+                taskInput.value = '';  // Clear input field after adding task
+            }
+        });
+
+        // Optionally, allow pressing Enter to add the task
+        taskInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const taskContent = taskInput.value.trim();
+                if (taskContent !== '') {
+                    createTask(taskContent);
+                    taskInput.value = '';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

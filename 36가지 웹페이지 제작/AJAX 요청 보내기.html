@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 예제 8</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#loadDataBtn").click(function() {
+                $.ajax({
+                    url: "https://jsonplaceholder.typicode.com/posts/1",
+                    method: "GET",
+                    success: function(data) {
+                        $("#data").html("<h3>" + data.title + "</h3><p>" + data.body + "</p>");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="loadDataBtn">데이터 불러오기</button>
+    <div id="data"></div>
+</body>
+</html>

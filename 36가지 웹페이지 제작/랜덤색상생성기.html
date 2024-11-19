@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>랜덤 색상 생성기</title>
+</head>
+<body>
+    <h1>랜덤 색상 생성기</h1>
+    <button id="colorButton">색상 변경하기</button>
+    <p id="colorDisplay"></p>
+
+    <script>
+        document.getElementById('colorButton').addEventListener('click', function() {
+            const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+            document.body.style.backgroundColor = randomColor;
+            document.getElementById('colorDisplay').textContent = `현재 색상: ${randomColor}`;
+        });
+    </script>
+</body>
+</html>

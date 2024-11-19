@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>탭 인터페이스</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .tab {
+            display: inline-block;
+            padding: 10px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-bottom: none;
+        }
+        .tab-content {
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: none;
+        }
+        .active {
+            background-color: #f0f0f0;
+            border-top: 2px solid #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <h1>탭 인터페이스</h1>
+    <div id="tabs">
+        <div class="tab active" data-tab="tab1">탭 1</div>
+        <div class="tab" data-tab="tab2">탭 2</div>
+        <div class="tab" data-tab="tab3">탭 3</div>
+    </div>
+    
+    <div id="tabContents">
+        <div class="tab-content" id="tab1" style="display: block;">
+            <h2>탭 1 내용</h2>
+            <p>여기는 탭 1의 내용입니다.</p>
+        </div>
+        <div class="tab-content" id="tab2">
+            <h2>탭 2 내용</h2>
+            <p>여기는 탭 2의 내용입니다.</p>
+        </div>
+        <div class="tab-content" id="tab3">
+            <h2>탭 3 내용</h2>
+            <p>여기는 탭 3의 내용입니다.</p>
+        </div>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const target = this.getAttribute('data-tab');
+                
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(content => content.style.display = 'none');
+                
+                this.classList.add('active');
+                document.getElementById(target).style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>

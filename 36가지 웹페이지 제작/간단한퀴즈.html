@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quiz App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Quiz App</h1>
+    <div id="quizContainer">
+        <div id="question" class="question"></div>
+        <div id="options"></div>
+        <button id="nextButton" disabled>Next Question</button>
+        <p id="score" style="margin-top: 15px;"></p>
+    </div>
+
+    <script>
+        // Quiz data
+        const quizData = [
+            {
+                question: "What is the capital of France?",
+                options: ["Berlin", "Madrid", "Paris", "Rome"],
+                correct: "Paris"
+            },
+            {
+                question: "Which planet is known as the Red Planet?",
+                options: ["Earth", "Mars", "Jupiter", "Saturn"],
+                correct: "Mars"
+            },
+            {
+                question: "Who wrote 'Romeo and Juliet'?",
+                options: ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
+                correct: "William Shakespeare"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        // Elements
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const nextButton = document.getElementById('nextButton');
+        const scoreElement = document.getElementById('score');
+
+        // Load a question
+        function loadQuestion() {
+            const currentQuestion = quizData[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+
+            optionsElement.innerHTML = '';
+            currentQuestion.options.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.addEventListener('click', function() {
+                    handleAnswer(option);
+                });
+                optionsElement.appendChild(button);
+            });
+
+            nextButton.disabled = true;
+        }
+
+        // Handle answer selection
+        function handleAnswer(selectedOption) {
+            const correctOption = quizData[currentQuestionIndex].correct;
+            if (selectedOption === correctOption) {
+                score++;
+                alert('Correct!');
+            } else {
+                alert(`Wrong! The correct answer was: ${correctOption}`);
+            }
+            nextButton.disabled = false;
+        }
+
+        // Move to the next question
+        nextButton.addEventListener('click', function() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                loadQuestion();
+            } else {
+                // Quiz completed
+                questionElement.textContent = 'Quiz Completed!';
+                optionsElement.innerHTML = '';
+                nextButton.style.display = 'none';
+                scoreElement.textContent = `Your final score is: ${score} out of ${quizData.length}`;
+            }
+        });
+
+        // Initialize quiz
+        loadQuestion();
+    </script>
+</body>
+</html>

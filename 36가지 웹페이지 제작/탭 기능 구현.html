@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery 예제 10</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(".tab-button").click(function(){
+        var target = $(this).attr("data-target");
+        $(".tab-content").hide();
+        $("#" + target).show();
+      });
+    });
+  </script>
+</head>
+<body>
+  <button class="tab-button" data-target="tab1">탭 1</button>
+  <button class="tab-button" data-target="tab2">탭 2</button>
+  
+  <div id="tab1" class="tab-content" style="display: none;">
+    <h2>탭 1 내용</h2>
+    <p>여기는 탭 1의 내용입니다.</p>
+  </div>
+  
+  <div id="tab2" class="tab-content" style="display: none;">
+    <h2>탭 2 내용</h2>
+    <p>여기는 탭 2의 내용입니다.</p>
+  </div>
+</body>
+</html>

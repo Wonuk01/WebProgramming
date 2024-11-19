@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>이미지 갤러리</title>
+    <style>
+        img {
+            width: 100px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        #modal img {
+            width: 80%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <h1>이미지 갤러리</h1>
+    <div id="modal">
+        <img id="modalImage" src="" alt="">
+    </div>
+    <div>
+        <img src="https://via.placeholder.com/150" alt="Image 1">
+        <img src="https://via.placeholder.com/150" alt="Image 2">
+        <img src="https://via.placeholder.com/150" alt="Image 3">
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('img:not(#modalImage)');
+        const modal = document.getElementById('modal');
+        const modalImage = document.getElementById('modalImage');
+
+        images.forEach(image => {
+            image.addEventListener('click', function() {
+                modalImage.src = this.src;
+                modal.style.display = 'flex';
+            });
+        });
+
+        modal.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

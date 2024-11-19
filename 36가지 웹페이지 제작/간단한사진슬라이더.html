@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>사진 슬라이더</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .slider {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        img {
+            width: 100%;
+        }
+        .button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>사진 슬라이더</h1>
+    <div class="slider">
+        <div class="slides">
+            <div class="slide"><img src="https://via.placeholder.com/600x300?text=Image+1" alt="Image 1"></div>
+            <div class="slide"><img src="https://via.placeholder.com/600x300?text=Image+2" alt="Image 2"></div>
+            <div class="slide"><img src="https://via.placeholder.com/600x300?text=Image+3" alt="Image 3"></div>
+        </div>
+        <button class="button prev" id="prevButton">❮</button>
+        <button class="button next" id="nextButton">❯</button>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        document.getElementById('nextButton').addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateSlider();
+        });
+
+        document.getElementById('prevButton').addEventListener('click', function() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        });
+
+        function updateSlider() {
+            const offset = -currentIndex * 100;
+            slides.style.transform = `translateX(${offset}%)`;
+        }
+    </script>
+</body>
+</html>

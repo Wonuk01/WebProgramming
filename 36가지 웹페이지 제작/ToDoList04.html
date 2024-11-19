@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>메모장 애플리케이션</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .note {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>메모장</h1>
+    <input type="text" id="noteInput" placeholder="메모를 입력하세요">
+    <button id="addNoteButton">추가하기</button>
+    <div id="notesContainer"></div>
+
+    <script>
+        const notes = [];
+
+        document.getElementById('addNoteButton').addEventListener('click', function() {
+            const noteText = document.getElementById('noteInput').value;
+            if (noteText) {
+                const note = { text: noteText, id: Date.now() };
+                notes.push(note);
+                renderNotes();
+                document.getElementById('noteInput').value = ''; // 입력 필드 초기화
+            }
+        });
+
+        function renderNotes() {
+            const container = document.getElementById('notesContainer');
+            container.innerHTML = ''; // 기존 메모 삭제
+            notes.forEach(note => {
+                const noteDiv = document.createElement('div');
+                noteDiv.className = 'note';
+                noteDiv.textContent = note.text;
+
+                const editButton = document.createElement('button');
+                editButton.textContent = '수정';
+                editButton.onclick = function() {
+                    const newText = prompt('수정할 메모를 입력하세요:', note.text);
+                    if (newText) {
+                        note.text = newText;
+                        renderNotes();
+                    }
+                };
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = '삭제';
+                deleteButton.onclick = function() {
+                    const index = notes.findIndex(n => n.id === note.id);
+                    notes.splice(index, 1);
+                    renderNotes();
+                };
+
+                noteDiv.appendChild(editButton);
+                noteDiv.appendChild(deleteButton);
+                container.appendChild(noteDiv);
+            });
+        }
+    </script>
+</body>
+</html>

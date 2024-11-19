@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>날짜 계산기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>날짜 계산기</h1>
+    <input type="date" id="startDate" placeholder="시작 날짜">
+    <input type="date" id="endDate" placeholder="종료 날짜">
+    <button id="calculateButton">일수 계산하기</button>
+    <h2 id="result"></h2>
+
+    <script>
+        document.getElementById('calculateButton').addEventListener('click', function() {
+            const startDate = new Date(document.getElementById('startDate').value);
+            const endDate = new Date(document.getElementById('endDate').value);
+
+            if (isNaN(startDate) || isNaN(endDate)) {
+                document.getElementById('result').textContent = '유효한 날짜를 입력하세요.';
+                return;
+            }
+
+            const timeDiff = endDate - startDate;
+            const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+            if (daysDiff < 0) {
+                document.getElementById('result').textContent = '종료 날짜는 시작 날짜 이후여야 합니다.';
+            } else {
+                document.getElementById('result').textContent = `두 날짜 사이의 일수: ${daysDiff}일`;
+            }
+        });
+    </script>
+</body>
+</html>

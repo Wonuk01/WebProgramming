@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 예제 6</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("li").click(function() {
+                $(this).css("color", "red");
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>아이템 1</li>
+        <li>아이템 2</li>
+        <li>아이템 3</li>
+    </ul>
+</body>
+</html>

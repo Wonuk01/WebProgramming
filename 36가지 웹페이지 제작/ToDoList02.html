@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+        button {
+            margin-left: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <input type="text" id="taskInput" placeholder="Enter a new task">
+    <button id="addButton">Add Task</button>
+    <ul id="taskList"></ul>
+
+    <script>
+        // Function to add a new task
+        document.getElementById('addButton').addEventListener('click', function() {
+            const taskInput = document.getElementById('taskInput');
+            const taskText = taskInput.value.trim();
+
+            if (taskText !== '') {
+                // Create new list item
+                const listItem = document.createElement('li');
+                const taskCheckbox = document.createElement('input');
+                taskCheckbox.type = 'checkbox';
+
+                const taskLabel = document.createElement('span');
+                taskLabel.textContent = taskText;
+                taskLabel.style.marginLeft = '5px';
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+
+                // Append elements to the list item
+                listItem.appendChild(taskCheckbox);
+                listItem.appendChild(taskLabel);
+                listItem.appendChild(deleteButton);
+
+                // Add the list item to the task list
+                document.getElementById('taskList').appendChild(listItem);
+
+                // Clear input field
+                taskInput.value = '';
+
+                // Add event listener to delete button
+                deleteButton.addEventListener('click', function() {
+                    listItem.remove();
+                });
+
+                // Add event listener to toggle task completion
+                taskCheckbox.addEventListener('change', function() {
+                    if (taskCheckbox.checked) {
+                        taskLabel.style.textDecoration = 'line-through';
+                    } else {
+                        taskLabel.style.textDecoration = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

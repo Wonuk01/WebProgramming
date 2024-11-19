@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 예제 4</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#animateBtn").click(function() {
+                $("div").animate({
+                    left: "250px",
+                    opacity: "0.5"
+                });
+            });
+        });
+    </script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <button id="animateBtn">애니메이션 시작</button>
+    <div></div>
+</body>
+</html>

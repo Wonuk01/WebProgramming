@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>퀴즈 애플리케이션</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>퀴즈 애플리케이션</h1>
+    <div id="quizContainer"></div>
+    <button id="submitButton">제출하기</button>
+    <div class="result" id="result"></div>
+
+    <script>
+        const quizData = [
+            {
+                question: "자바스크립트의 창시자는 누구인가요?",
+                options: ["브렌던 아이크", "타임버너스리", "마크 주커버그", "이반 파스칼"],
+                answer: "브렌던 아이크"
+            },
+            {
+                question: "자바스크립트의 데이터 타입이 아닌 것은?",
+                options: ["문자열", "숫자", "불리언", "XML"],
+                answer: "XML"
+            },
+            {
+                question: "자바스크립트에서 배열의 첫 번째 요소에 접근하는 방법은?",
+                options: ["array[0]", "array(1)", "array{1}", "array.first()"],
+                answer: "array[0]"
+            }
+        ];
+
+        const quizContainer = document.getElementById('quizContainer');
+
+        quizData.forEach((quiz, index) => {
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question';
+            questionDiv.innerHTML = `<p>${index + 1}. ${quiz.question}</p>`;
+
+            quiz.options.forEach(option => {
+                questionDiv.innerHTML += `
+                    <label>
+                        <input type="radio" name="question${index}" value="${option}">
+                        ${option}
+                    </label><br>
+                `;
+            });
+
+            quizContainer.appendChild(questionDiv);
+        });
+
+        document.getElementById('submitButton').addEventListener('click', function() {
+            let score = 0;
+
+            quizData.forEach((quiz, index) => {
+                const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+                if (selectedOption && selectedOption.value === quiz.answer) {
+                    score++;
+                }
+            });
+
+            document.getElementById('result').textContent = `당신의 점수는 ${score}점입니다.`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>할 일 목록</title>
+</head>
+<body>
+    <h1>할 일 목록</h1>
+    <input type="text" id="taskInput" placeholder="할 일을 입력하세요">
+    <button id="addTaskButton">추가하기</button>
+    <ul id="taskList"></ul>
+
+    <script>
+        document.getElementById('addTaskButton').addEventListener('click', function() {
+            const taskInput = document.getElementById('taskInput');
+            const taskText = taskInput.value;
+
+            if (taskText) {
+                const li = document.createElement('li');
+                li.textContent = taskText;
+                li.addEventListener('click', function() {
+                    this.remove(); // 클릭 시 삭제
+                });
+                document.getElementById('taskList').appendChild(li);
+                taskInput.value = ''; // 입력 필드 초기화
+            }
+        });
+    </script>
+</body>
+</html>

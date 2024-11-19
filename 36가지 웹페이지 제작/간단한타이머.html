@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #timer {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Timer</h1>
+    <input type="number" id="minutes" placeholder="Enter minutes" min="0">
+    <button id="startButton">Start Timer</button>
+    <div id="timer">00:00</div>
+
+    <script>
+        let timerInterval;
+
+        // Start the timer
+        document.getElementById('startButton').addEventListener('click', function() {
+            const minutesInput = document.getElementById('minutes').value;
+            let timeRemaining = parseInt(minutesInput) * 60;
+
+            if (isNaN(timeRemaining) || timeRemaining <= 0) {
+                alert('Please enter a valid number of minutes.');
+                return;
+            }
+
+            // Display initial time
+            displayTime(timeRemaining);
+
+            // Clear any previous timer
+            clearInterval(timerInterval);
+
+            // Start the countdown
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                displayTime(timeRemaining);
+
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    alert('Time is up!');
+                }
+            }, 1000);
+        });
+
+        // Function to display time
+        function displayTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            document.getElementById('timer').textContent = 
+                `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+        }
+    </script>
+</body>
+</html>

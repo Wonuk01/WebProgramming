@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>날씨 정보 조회기</title>
+</head>
+<body>
+    <h1>날씨 정보 조회기</h1>
+    <input type="text" id="cityInput" placeholder="도시 이름 입력">
+    <button id="getWeatherButton">날씨 확인하기</button>
+    <p id="weatherResult"></p>
+
+    <script>
+        document.getElementById('getWeatherButton').addEventListener('click', function() {
+            const city = document.getElementById('cityInput').value;
+            const apiKey = 'YOUR_API_KEY'; // OpenWeatherMap API 키 입력
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('도시를 찾을 수 없습니다.');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const weather = `현재 ${data.name}의 온도는 ${data.main.temp}°C입니다.`;
+                    document.getElementById('weatherResult').textContent = weather;
+                })
+                .catch(error => {
+                    document.getElementById('weatherResult').textContent = error.message;
+                });
+        });
+    </script>
+</body>
+</html>

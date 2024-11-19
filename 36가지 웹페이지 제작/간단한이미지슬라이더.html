@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Image Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .slider {
+            width: 80%;
+            margin: 20px auto;
+            max-width: 600px;
+            position: relative;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            font-size: 16px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #prev {
+            left: 0;
+        }
+        #next {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Image Slider</h1>
+    <div class="slider">
+        <img src="https://via.placeholder.com/600x400/ff7f7f/333333?text=Image+1" alt="Image 1">
+        <img src="https://via.placeholder.com/600x400/ffbf00/333333?text=Image+2" alt="Image 2">
+        <img src="https://via.placeholder.com/600x400/7f7fff/333333?text=Image+3" alt="Image 3">
+        <button id="prev">Prev</button>
+        <button id="next">Next</button>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.slider img');
+        let currentIndex = 0;
+
+        // Show the first image
+        images[currentIndex].style.display = 'block';
+
+        // Show next image
+        document.getElementById('next').addEventListener('click', () => {
+            images[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
+            images[currentIndex].style.display = 'block';
+        });
+
+        // Show previous image
+        document.getElementById('prev').addEventListener('click', () => {
+            images[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop back to the last image
+            images[currentIndex].style.display = 'block';
+        });
+    </script>
+</body>
+</html>

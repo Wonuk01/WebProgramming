@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>쇼핑 목록 애플리케이션</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .item {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>쇼핑 목록</h1>
+    <input type="text" id="itemInput" placeholder="아이템을 입력하세요">
+    <button id="addItemButton">추가하기</button>
+    <div id="itemContainer"></div>
+
+    <script>
+        const items = [];
+
+        document.getElementById('addItemButton').addEventListener('click', function() {
+            const itemText = document.getElementById('itemInput').value;
+            if (itemText) {
+                const item = { text: itemText, id: Date.now() };
+                items.push(item);
+                renderItems();
+                document.getElementById('itemInput').value = ''; // 입력 필드 초기화
+            }
+        });
+
+        function renderItems() {
+            const container = document.getElementById('itemContainer');
+            container.innerHTML = ''; // 기존 아이템 삭제
+            items.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'item';
+                itemDiv.innerHTML = `
+                    ${item.text}
+                    <button onclick="deleteItem(${item.id})">삭제</button>
+                `;
+                container.appendChild(itemDiv);
+            });
+        }
+
+        function deleteItem(itemId) {
+            const index = items.findIndex(i => i.id === itemId);
+            if (index > -1) {
+                items.splice(index, 1);
+                renderItems();
+            }
+        }
+    </script>
+</body>
+</html>

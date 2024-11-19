@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>투표 애플리케이션</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .option {
+            margin: 10px 0;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>어떤 언어를 선호하시나요?</h1>
+    <div id="pollContainer">
+        <div class="option">
+            <input type="radio" name="language" value="JavaScript" id="jsOption">
+            <label for="jsOption">JavaScript</label>
+        </div>
+        <div class="option">
+            <input type="radio" name="language" value="Python" id="pyOption">
+            <label for="pyOption">Python</label>
+        </div>
+        <div class="option">
+            <input type="radio" name="language" value="Java" id="javaOption">
+            <label for="javaOption">Java</label>
+        </div>
+        <button id="voteButton">투표하기</button>
+    </div>
+    <div class="result" id="result"></div>
+
+    <script>
+        const votes = {
+            JavaScript: 0,
+            Python: 0,
+            Java: 0
+        };
+
+        document.getElementById('voteButton').addEventListener('click', function() {
+            const selectedOption = document.querySelector('input[name="language"]:checked');
+            if (selectedOption) {
+                const language = selectedOption.value;
+                votes[language]++;
+                displayResults();
+            } else {
+                alert('투표를 선택하세요!');
+            }
+        });
+
+        function displayResults() {
+            const resultContainer = document.getElementById('result');
+            resultContainer.innerHTML = `
+                <h2>투표 결과</h2>
+                <p>JavaScript: ${votes.JavaScript}표</p>
+                <p>Python: ${votes.Python}표</p>
+                <p>Java: ${votes.Java}표</p>
+            `;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 예제 3</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#addClassBtn").click(function() {
+                $("p").addClass("highlight");
+            });
+            $("#removeClassBtn").click(function() {
+                $("p").removeClass("highlight");
+            });
+        });
+    </script>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <button id="addClassBtn">클래스 추가</button>
+    <button id="removeClassBtn">클래스 제거</button>
+    <p>이 문장은 클래스가 추가되거나 제거됩니다.</p>
+</body>
+</html>
