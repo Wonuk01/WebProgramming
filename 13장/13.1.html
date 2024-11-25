@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>자바스크립트로 비디오 제어</title>
+</head>
+<body>
+<h3>자바스크립트로 비디오 제어</h3>
+<hr>
+<video id="video" width="320" height="240">
+	<source src="C:/Temp/Web2/13장/media/Unavailable"  type="video/mp4">
+	웹 브라우저가 video 태그를 지원하지 않습니다.
+</video>
+<div id="msg">이곳에 비디오 제어 메시지 출력</div>
+<button id="play" onclick="control(event)">play</button>
+<button id="pause" onclick="control(event)">pause</button>
+<button id="replay" onclick="control(event)">replay</button>
+<button id="vol-" onclick="control(event)">vol-</button>
+<button id="vol+" onclick="control(event)">vol+</button>
+<button id="mute on/off" onclick="control(event)">mute on/off</button>
+<script>
+let divEmt = document.getElementById("msg");
+let video = document.getElementById("video");
+
+function control(e) {
+	if(e.target.id == "play") { 
+		video.play(); 
+		divEmt.innerHTML = getSource(video) + "를 재생중입니다.";
+	}
+	else if(e.target.id == "pause") { 
+		video.pause(); 
+		divEmt.innerHTML = "일시중지되었습니다.";
+	}
+	else if(e.target.id == "replay") { 
+		video.load(); 
+		video.play(); 
+		divEmt.innerHTML = getSource(video) + "를 처음부터 다시 재생합니다.";
+	}	
+	else if(e.target.id == "vol-") { 
+		if(video.volume <= 0.1) video.volume = 0;
+		else video.volume -= 0.1; 
+		divEmt.innerHTML = "음량 0.1 감소." + "현재 " + video.volume;
+	}	 
+	else if(e.target.id == "vol+") { 
+		if(video.volume >= 0.9) video.volume = 1.0;		
+		else video.volume += 0.1; 
+		divEmt.innerHTML = "음량 0.1 증가." + "현재 " + video.volume;;
+	}
+	else if(e.target.id == "mute on/off") { 
+		video.muted = !video.muted; 
+		if(video.muted) divEmt.innerHTML = "음소거";
+		else divEmt.innerHTML = "음소거 해제";
+	}	
+}
+function getSource(v) {
+	let child = v.firstElementChild;	
+	for(let i=0; i<v.childElementCount; i++) {
+		if(child.tagName == "SOURCE")
+			return child.src;
+		child = child.nextElementSibling;
+	}
+	return "";
+}
+</script>
+</body>
+</html>
